@@ -1,5 +1,5 @@
 # loxilb
-loxilb ext-cluster deployment
+A guide to LoxiLB's external cluster deployment, Grafana-based visualization, monitoring setup, and source code analysis.
 
 
 ## deploy
