@@ -1,0 +1,8 @@
+[global.config]
+  as = {{ asn }}
+  router-id = "{{ router_id }}"
+
+[[neighbors]]
+  [neighbors.config]
+    neighbor-address = "{{ neighbor }}"
+    peer-as = {{ asn }}
