@@ -7,9 +7,6 @@
   vars:
     root_dir: /data0
     docker_dir: "{{ root_dir }}/docker"
-    asn: 0
-    router_id: ""
-    neighbor: ""
     id: 0
     self_ip: ""
     peer_ip: ""
@@ -32,23 +29,8 @@
   - name: start docker
     shell: systemctl start docker && systemctl enable docker
 
-  - name: create /etc/gobgp directory if it does not exist
-    file:
-      path: /etc/gobgp
-      state: directory
-      owner: root
-      group: root
-      mode: '0755'
-  - name: generate /etc/gobgp/gobgp.conf from template
-    template:
-      src: gobgp.conf.template
-      dest: /etc/gobgp/gobgp.conf
-      owner: root
-      group: root
-      mode: '0644'
-
   - name: start loxilb
-    shell: docker run --restart unless-stopped -u root --cap-add SYS_ADMIN --network host --privileged -dit -v /etc/gobgp/gobgp.conf:/etc/gobgp/gobgp.conf -v /etc/localtime:/etc/localtime:ro -v /dev/log:/dev/log --name loxilb ghcr.io/loxilb-io/loxilb:v0.9.8.3 -b -p --self={{ id }} --cluster={{ peer_ip }} --ka={{ peer_ip }}:{{ self_ip }}
+    shell: docker run --restart unless-stopped -u root --cap-add SYS_ADMIN --network host --privileged -dit -v /etc/localtime:/etc/localtime:ro -v /dev/log:/dev/log --name loxilb ghcr.io/loxilb-io/loxilb:v0.9.8.3 -p --self={{ id }} --cluster={{ peer_ip }} --ka={{ peer_ip }}:{{ self_ip }}
   - name: check loxilb
     shell: ps auxww | grep loxilb | grep -v grep
     register: result

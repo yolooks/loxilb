@@ -5,6 +5,10 @@ A guide to LoxiLB's external cluster deployment, Grafana-based visualization, mo
 ## deploy
 
 ```
+# with bgp
+ansible-playbook loxilb.yaml -i <ip>, -e "lb=all asn=<as> router_id=<ip> neighbor=<neighbor_ip> id=<index> self_ip=<ip> peer_ip=<peer_ip>"
+
+# no bgp
 ansible-playbook loxilb.yaml -i <ip>, -e "lb=all id=<index> self_ip=<ip> peer_ip=<peer_ip>"
 ```
 
