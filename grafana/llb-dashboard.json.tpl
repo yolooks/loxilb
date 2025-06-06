@@ -504,7 +504,8 @@
           },
           "editorMode": "code",
           "expr": "rate(processed_packets{instance=\"$instance\"}[2m])",
-          "legendFormat": "__auto",
+          "interval": "",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -659,7 +660,7 @@
           },
           "editorMode": "code",
           "expr": "new_flow_count{instance=\"$instance\"}",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -752,7 +753,7 @@
           },
           "editorMode": "code",
           "expr": "active_flow_count_tcp{instance=\"$instance\"}",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -845,7 +846,7 @@
           },
           "editorMode": "code",
           "expr": "active_flow_count_udp{instance=\"$instance\"}",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -938,7 +939,7 @@
           },
           "editorMode": "builder",
           "expr": "rate(processed_tcp_bytes{instance=\"$instance\"}[2m]) * 8",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1031,7 +1032,7 @@
           },
           "editorMode": "builder",
           "expr": "rate(processed_udp_bytes{instance=\"$instance\"}[2m]) * 8",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1124,7 +1125,7 @@
           },
           "editorMode": "code",
           "expr": "rate(total_requests{instance=\"$instance\"}[2m])",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1217,7 +1218,7 @@
           },
           "editorMode": "code",
           "expr": "sum(rate(total_requests_per_service{instance=\"$instance\"}[2m])) by (service)",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1310,7 +1311,7 @@
           },
           "editorMode": "code",
           "expr": "rate(total_errors{instance=\"$instance\"}[2m])",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1403,7 +1404,7 @@
           },
           "editorMode": "code",
           "expr": "sum(rate(total_errors_per_service{instance=\"$instance\"}[2m])) by (service)",
-          "legendFormat": "__auto",
+          "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
@@ -1580,13 +1581,13 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "LoxiLB-troubleshooting",
   "uid": "kx1zDRYHk",
-  "version": 78,
+  "version": 80,
   "weekStart": ""
 }
