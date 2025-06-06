@@ -53,7 +53,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 5,
+        "w": 8,
         "x": 0,
         "y": 0
       },
@@ -115,8 +115,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 4,
-        "x": 5,
+        "w": 8,
+        "x": 8,
         "y": 0
       },
       "id": 3,
@@ -180,8 +180,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 5,
-        "x": 9,
+        "w": 8,
+        "x": 16,
         "y": 0
       },
       "id": 4,
@@ -224,6 +224,79 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 4
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "legend": {
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto",
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "your-uid"
+          },
+          "editorMode": "code",
+          "expr": "active_conntrack_count{instance=\"$instance\"}",
+          "legendFormat": "Active Connections",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Active Connections",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "your-uid"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "thresholds"
           },
           "mappings": [],
@@ -244,10 +317,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 14,
-        "y": 0
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 4
       },
       "id": 5,
       "options": {
@@ -309,10 +382,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 5,
-        "x": 19,
-        "y": 0
+        "h": 7,
+        "w": 8,
+        "x": 16,
+        "y": 4
       },
       "id": 6,
       "options": {
@@ -354,239 +427,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bps"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 0,
-        "y": 4
-      },
-      "id": 21,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.4.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "your-uid"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(processed_bytes{instance=\"$instance\"}[2m]))*8",
-          "legendFormat": "Total Traffic",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Total Traffic Processed",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "your-uid"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 12,
-        "x": 12,
-        "y": 4
-      },
-      "id": 22,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "legend": {
-          "displayMode": "table",
-          "placement": "bottom"
-        },
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto",
-        "tooltip": {
-          "mode": "multi"
-        }
-      },
-      "pluginVersion": "9.4.7",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "your-uid"
-          },
-          "editorMode": "code",
-          "expr": "active_conntrack_count{instance=\"$instance\"}",
-          "legendFormat": "Active Connections",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Active Connections",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "your-uid"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "binBps"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 0,
-        "y": 10
-      },
-      "id": 16,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "your-uid"
-          },
-          "editorMode": "code",
-          "expr": "rate(processed_bytes{instance=\"$instance\"}[2m])*8",
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Total Throughput (BPS)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "your-uid"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
+            "mode": "continuous-GrYlRd"
           },
           "custom": {
             "axisCenteredZero": false,
@@ -637,10 +478,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
-        "w": 12,
-        "x": 12,
-        "y": 10
+        "h": 9,
+        "w": 16,
+        "x": 0,
+        "y": 11
       },
       "id": 11,
       "options": {
@@ -670,6 +511,68 @@
       ],
       "title": "Total Processed Packets(PPS)",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "your-uid"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 16,
+        "y": 11
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "your-uid"
+          },
+          "editorMode": "code",
+          "expr": "sum(rate(processed_bytes{instance=\"$instance\"}[2m]))*8",
+          "legendFormat": "Total Traffic",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Total Traffic Processed",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -730,8 +633,8 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 8,
+        "h": 9,
+        "w": 9,
         "x": 0,
         "y": 20
       },
@@ -823,9 +726,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 8,
+        "h": 9,
+        "w": 9,
+        "x": 9,
         "y": 20
       },
       "id": 9,
@@ -916,9 +819,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 16,
+        "h": 9,
+        "w": 6,
+        "x": 18,
         "y": 20
       },
       "id": 18,
@@ -1012,7 +915,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 27
+        "y": 29
       },
       "id": 10,
       "options": {
@@ -1105,7 +1008,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 27
+        "y": 29
       },
       "id": 12,
       "options": {
@@ -1198,7 +1101,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 37
+        "y": 39
       },
       "id": 34,
       "options": {
@@ -1291,7 +1194,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 37
+        "y": 39
       },
       "id": 38,
       "options": {
@@ -1384,7 +1287,7 @@
         "h": 10,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 49
       },
       "id": 39,
       "options": {
@@ -1477,7 +1380,7 @@
         "h": 10,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 49
       },
       "id": 40,
       "options": {
@@ -1540,7 +1443,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 57
+        "y": 59
       },
       "id": 25,
       "options": {
@@ -1604,7 +1507,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 57
+        "y": 59
       },
       "id": 42,
       "options": {
@@ -1684,6 +1587,6 @@
   "timezone": "",
   "title": "LoxiLB-troubleshooting",
   "uid": "kx1zDRYHk",
-  "version": 73,
+  "version": 78,
   "weekStart": ""
 }
